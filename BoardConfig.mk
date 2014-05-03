@@ -51,4 +51,7 @@ TARGET_PREBUILT_KERNEL := device/hisense/AD683G/kernel
 
 TARGET_PROVIDES_INIT_RC := true
 
+TARGET_PROVIDES_SENSORHAL := true
+TARGET_PROVIDES_CAMERAHAL := true
+
 include vendor/hisense/AD683G/BoardConfigVendor.mk
