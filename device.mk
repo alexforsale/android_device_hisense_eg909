@@ -24,6 +24,8 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+DEVICE_PACKAGE_OVERLAYS := device/hisense/AD683G/overlay
+
 #dsds enable
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dsds.enabled=true
