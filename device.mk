@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
+
 include device/qcom/msm7627a/msm7627a.mk
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -30,8 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     init.rc \
     init.AD683G.rc
-
-$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
 
 PRODUCT_NAME := AD683G
 PRODUCT_DEVICE := AD683G

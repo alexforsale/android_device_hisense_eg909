@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+include vendor/hisense/AD683G/BoardConfigVendor.mk
 include device/qcom/msm7627a/BoardConfig.mk
 
 USE_CAMERA_STUB := true
@@ -53,5 +53,3 @@ TARGET_PROVIDES_INIT_RC := true
 
 TARGET_PROVIDES_SENSORHAL := true
 TARGET_PROVIDES_CAMERAHAL := true
-
-include vendor/hisense/AD683G/BoardConfigVendor.mk
