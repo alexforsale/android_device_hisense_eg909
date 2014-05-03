@@ -26,6 +26,8 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dsds.enabled=true
 
+$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk
+)
 PRODUCT_NAME := AD683G
 PRODUCT_DEVICE := AD683G
 PRODUCT_BRAND := hisense

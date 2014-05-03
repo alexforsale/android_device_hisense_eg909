@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+include device/qcom/msm7627a/BoardConfig.mk
+
 USE_CAMERA_STUB := true
 
 TARGET_NO_BOOTLOADER := true
@@ -36,6 +38,13 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 
 BOARD_EGL_CFG := device/qcom/msm7627a/egl.cfg
 
-INSTALLED_KERNEL_TARGET := device/hisense/AD683G/kernel
+BOARD_USES_QCOM_HARDWARE := true
+DYNAMIC_SHARED_LIBV8SO := true
+USE_OPENGL_RENDERER := true
+TARGET_USES_MDP3 := true
+BOARD_HAVE_QCOM_FM := true
+PROTEUS_DEVICE_API := true
 
-include device/qcom/msm7627a/BoardConfig.mk
+TARGET_PREBUILT_KERNEL := device/hisense/AD683G/kernel
+
+include vendor/hisense/AD683G/BoardConfigVendor.mk
