@@ -23,56 +23,63 @@ service memsicd /system/bin/memsicd
     group memsicd
     oneshot
 
+service utpd /system/bin/utpd
+    #socket utpd stream 600 radio system
+    user root system radio
+    group root net_admin net_raw radio
+    disabled
+    oneshot  
+
 # wifi & bluetooth stuffs
 
 service diag_atc /system/bin/diag_atc
     class main
     user root
 
-service efs_sync /system/bin/sh /system/etc/efs_sync.sh
+service wifidiagsend /system/bin/sh /system/etc/wifitest_send.sh
     class main
     user root
     group root
-    disabled
+    #disabled
+    oneshot
+
+service wifidiagrecv /system/bin/sh /system/etc/wifitest_recv.sh
+    class main
+    user root
+    group root
+    #disabled
+
+service bttestmode /system/bin/sh /system/etc/testmode.sh
+    class main
+    user root
+    group root
+    #disabled
     oneshot
 
 service loadwifi /system/bin/sh /system/etc/load_wifi_mod.sh
     class main
     user root
     group root
-    disabled
-    oneshot  
+    #disabled
+    oneshot
 
 service rmwifi /system/bin/sh /system/etc/remove_wifi_mod.sh
     class main
     user root
     group root
-    disabled
+    #disabled
     oneshot
 
 service test_bluetooth /system/bin/sh /system/etc/test_bluetooth.sh
     class main
     user root
     group root
-    disabled
+    #disabled
     oneshot
 
-service bttestmode /system/bin/sh /system/etc/testmode.sh
+service efs_sync /system/bin/sh /system/etc/efs_sync.sh
     class main
     user root
     group root
-    disabled
-    oneshot  
-
-service wifidiagrecv /system/bin/sh /system/etc/wifitest_recv.sh
-    class main
-    user root
-    group root
-    disabled
-
-service wifidiagsend /system/bin/sh /system/etc/wifitest_send.sh
-    class main
-    user root
-    group root
-    disabled
+    #disabled
     oneshot
