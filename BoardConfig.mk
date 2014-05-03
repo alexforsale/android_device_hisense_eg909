@@ -47,4 +47,6 @@ PROTEUS_DEVICE_API := true
 
 TARGET_PREBUILT_KERNEL := device/hisense/AD683G/kernel
 
+TARGET_PROVIDES_INIT_RC := true
+
 include vendor/hisense/AD683G/BoardConfigVendor.mk
