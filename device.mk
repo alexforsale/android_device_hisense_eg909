@@ -38,6 +38,9 @@ PRODUCT_PACKAGES += \
     Superuser \
     Apollo
 
+# gps.conf
+$(call inherit-product, device/common/gps/gps_as_supl.mk)
+
 # gapps
 $(call inherit-product, vendor/gapps/gapps-vendor-blobs.mk)
 
