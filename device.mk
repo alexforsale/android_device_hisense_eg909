@@ -33,6 +33,11 @@ PRODUCT_PACKAGES += \
     init.rc \
     init.AD683G.rc
 
+# additional packages
+PRODUCT_PACKAGES += \
+    Superuser \
+    Apollo
+
 # gapps
 $(call inherit-product, vendor/gapps/gapps-vendor-blobs.mk)
 
