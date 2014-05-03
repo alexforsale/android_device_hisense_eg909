@@ -33,6 +33,9 @@ PRODUCT_PACKAGES += \
     init.rc \
     init.AD683G.rc
 
+# gapps
+$(call inherit-product, vendor/gapps/gapps-vendor-blobs.mk)
+
 PRODUCT_NAME := AD683G
 PRODUCT_DEVICE := AD683G
 PRODUCT_BRAND := hisense
