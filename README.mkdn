@@ -1,0 +1,4 @@
+android_device_hisense_AD683G
+======================================
+
+Codeaurora's AOSP device tree for AD683G
