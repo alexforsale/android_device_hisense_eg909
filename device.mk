@@ -26,6 +26,9 @@ endif
 
 DEVICE_PACKAGE_OVERLAYS := device/hisense/AD683G/overlay
 
+# use apns from cm9
+PRODUCT_COPY_FILES += device/hisense/AD683G/overlay/frameworks/base/core/res/res/xml/apns.xml:system/etc/apns-conf.xml
+
 #dsds enable
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dsds.enabled=true
@@ -38,7 +41,9 @@ PRODUCT_PACKAGES += \
 # additional packages
 PRODUCT_PACKAGES += \
     Superuser \
-    Apollo
+    Apollo \
+    Term \
+    libjackpal-androidterm4
 
 # gps.conf
 $(call inherit-product, device/common/gps/gps_as_supl.mk)
