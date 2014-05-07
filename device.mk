@@ -45,13 +45,13 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
 
 # proprietary stuffs
-$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
+$(call inherit-product-if-exists, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
 
 # gps.conf
 $(call inherit-product, device/common/gps/gps_as_supl.mk)
 
 # gapps
-$(call inherit-product, vendor/gapps/gapps-vendor-blobs.mk)
+$(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
 
 PRODUCT_NAME := AD683G
 PRODUCT_DEVICE := AD683G
