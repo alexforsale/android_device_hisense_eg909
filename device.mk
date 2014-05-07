@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
-
-include device/qcom/msm7627a/msm7627a.mk
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/hisense/AD683G/kernel
 else
@@ -44,6 +40,12 @@ PRODUCT_PACKAGES += \
     Apollo \
     Term \
     libjackpal-androidterm4
+
+# msm7627a
+$(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
+
+# proprietary stuffs
+$(call inherit-product, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
 
 # gps.conf
 $(call inherit-product, device/common/gps/gps_as_supl.mk)

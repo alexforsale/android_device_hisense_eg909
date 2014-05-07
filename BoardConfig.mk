@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include vendor/hisense/AD683G/BoardConfigVendor.mk
 include device/qcom/msm7627a/BoardConfig.mk
 
 USE_CAMERA_STUB := true
@@ -59,3 +58,4 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 358400000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2191360000
 
+include vendor/hisense/AD683G/BoardConfigVendor.mk
