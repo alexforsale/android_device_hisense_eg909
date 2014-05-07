@@ -22,8 +22,8 @@ endif
 
 DEVICE_PACKAGE_OVERLAYS := device/hisense/AD683G/overlay
 
-# use apns from cm9
-PRODUCT_COPY_FILES += device/hisense/AD683G/overlay/frameworks/base/core/res/res/xml/apns.xml:system/etc/apns-conf.xml
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 #dsds enable
 PRODUCT_PROPERTY_OVERRIDES += \
