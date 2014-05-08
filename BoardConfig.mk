@@ -47,6 +47,9 @@ BOARD_HAVE_QCOM_FM := true
 PROTEUS_DEVICE_API := true
 
 TARGET_PREBUILT_KERNEL := device/hisense/AD683G/kernel
+# modify Android.mk in system/core/charger and system/core/init to use these
+#TARGET_PREBUILT_INIT := vendor/hisense/AD683G/proprietary/init
+TARGET_PREBUILT_CHARGER := vendor/hisense/AD683G/proprietary/charger
 
 TARGET_PROVIDES_INIT_RC := true
 
