@@ -25,9 +25,18 @@ DEVICE_PACKAGE_OVERLAYS := device/hisense/AD683G/overlay
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-#dsds enable
+# dsds enable
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dsds.enabled=true
+
+# property override for dns
+PRODUCT_PROPERTY_OVERRIDES += \
+    dhcp.wlan0.dns1=8.8.8.8 \
+    dhcp.wlan0.dns2=8.8.4.4 \
+    net.dns1=8.8.8.8 \
+    net.dns2=8.8.4.4 \
+    net.wlan0.dns1=8.8.8.8 \
+    net.wlan0.dns2=8.8.4.4
 
 # init files
 PRODUCT_PACKAGES += \
