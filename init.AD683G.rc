@@ -36,6 +36,59 @@ service port-bridge-pcui /system/bin/port-bridge /dev/smd7 /dev/ttyGS1
     disabled
     oneshot
 
+on property:sys.usb.config=diag,serial_smd,serial_tty,serial_tty,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 109B
+    write /sys/class/android_usb/android0/idProduct 9114
+    write /sys/class/android_usb/android0/f_diag/clients diag
+    write /sys/class/android_usb/android0/f_serial/transports smd,tty,tty
+    write /sys/class/android_usb/android0/functions diag,adb,serial 
+    write /sys/class/android_usb/android0/enable 1
+    start adbd 
+    start port-bridge-pcui
+    setprop sys.usb.state $sys.usb.config
+    
+on property:sys.usb.config=serial_smd,serial_tty,serial_tty,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 109B
+    write /sys/class/android_usb/android0/idProduct 90C9
+    write /sys/class/android_usb/android0/f_serial/transports smd,tty,tty
+    write /sys/class/android_usb/android0/functions adb,serial 
+    write /sys/class/android_usb/android0/enable 1
+    start adbd 
+    start port-bridge-pcui
+    setprop sys.usb.state $sys.usb.config    
+
+on property:sys.usb.config=test,diag,serial_smd,serial_tty,serial_tty,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 109B
+    write /sys/class/android_usb/android0/idProduct 9114
+    write /sys/class/android_usb/android0/f_diag/clients diag
+    write /sys/class/android_usb/android0/f_serial/transports smd,tty,tty
+    write /sys/class/android_usb/android0/functions diag,adb,serial 
+    write /sys/class/android_usb/android0/enable 1
+    start adbd 
+    start port-bridge-pcui
+    setprop sys.usb.state $sys.usb.config
+
+on property:sys.usb.config=cdrom
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 109B
+    write /sys/class/android_usb/android0/idProduct F009
+    write /sys/class/android_usb/android0/functions mass_storage    
+    write /sys/class/android_usb/android0/enable 1
+    sleep 3
+    write /sys/class/android_usb/android0/f_mass_storage/lun/file  /dev/block/mmcblk0p19     
+    setprop sys.usb.state $sys.usb.config
+
+on property:sys.usb.config=mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 109B
+    write /sys/class/android_usb/android0/idProduct F001
+    write /sys/class/android_usb/android0/functions mass_storage    
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state $sys.usb.config
+
 # wifi & bluetooth stuffs
 
 service diag_atc /system/bin/diag_atc
