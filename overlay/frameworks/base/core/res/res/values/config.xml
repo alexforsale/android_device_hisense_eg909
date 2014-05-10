@@ -88,7 +88,7 @@
      
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
          specified -->
-    <string name="default_wallpaper_component">com.android.phasebeam/.PhaseBeamWallpaper</string>
+    <!--string name="default_wallpaper_component">com.android.phasebeam/.PhaseBeamWallpaper</string-->
 
     <!-- Control whether being in the desk dock (and powered) always
          keeps the screen on.  By default it stays on when plugged in to
