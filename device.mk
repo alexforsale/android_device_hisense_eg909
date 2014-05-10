@@ -38,6 +38,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     net.wlan0.dns1=8.8.8.8 \
     net.wlan0.dns2=8.8.4.4
 
+# property override for browsermanagement
+PRODUCT_PROPERTY_OVERRIDES += \
+    browser.management=false
+
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
