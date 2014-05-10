@@ -28,7 +28,13 @@ service utpd /system/bin/utpd
     user root system radio
     group root net_admin net_raw radio
     disabled
-    oneshot  
+    oneshot
+
+# This is service for PCUI function
+service port-bridge-pcui /system/bin/port-bridge /dev/smd7 /dev/ttyGS1
+    class late_start
+    disabled
+    oneshot
 
 # wifi & bluetooth stuffs
 

@@ -359,6 +359,7 @@ on property:sys.usb.config=adb
     write /sys/class/android_usb/android0/functions diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
+    start port-bridge-pcui
     setprop sys.usb.state $sys.usb.config
 
 # USB accessory configuration
