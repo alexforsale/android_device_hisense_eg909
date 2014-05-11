@@ -71,4 +71,6 @@ ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_NEON := true
 ENABLE_SVG := true
 
+TARGET_RELEASETOOLS_EXTENSIONS := device/hisense/AD683G
+
 -include vendor/hisense/AD683G/BoardConfigVendor.mk
