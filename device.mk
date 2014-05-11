@@ -42,6 +42,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     browser.management=false
 
+# property override for google client id
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-hisense
+
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
