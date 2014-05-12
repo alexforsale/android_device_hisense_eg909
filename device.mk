@@ -46,6 +46,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-hisense
 
+# property override for checkjni in every type of build
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.android.checkjni=0
+
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
