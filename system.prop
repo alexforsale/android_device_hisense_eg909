@@ -212,3 +212,7 @@ ro.product.hasphonestorage=true
 # For qcril log (debug)
 persist.radio.adb_log_on=1
 
+#
+# Density
+#
+ro.sf.lcd_density=240
