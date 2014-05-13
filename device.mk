@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
     Term \
     libjackpal-androidterm4
 
+# permissions
+PRODUCT_COPY_FILES := \
+    frameworks/base/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
+
 # msm7627a
 $(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
 
