@@ -188,15 +188,6 @@ dev.pm.dyn_samplingrate=1
 #
 dev.pm.dyn_sample_period=700000
 
-# Set default network sub0=CDMA/EVDO, sub1=GSM only
-ro.telephony.default_network=4,1
-
-# For qcril log (debug)
-persist.radio.adb_log_on=1
-
-#dsds enable
-persist.dsds.enabled=true
-
 #
 # Version of hardware and software.
 #
@@ -208,9 +199,6 @@ persist.dualmic.enabled=false
 
 # Support Inner EMS
 ro.product.hasphonestorage=true
-
-# For qcril log (debug)
-persist.radio.adb_log_on=1
 
 #
 # Density
