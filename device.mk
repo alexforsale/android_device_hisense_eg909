@@ -50,6 +50,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
 
+# for default.prop override in every type of build
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.debuggable=1 \
+    ro.allow.mock.location=0
+
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
