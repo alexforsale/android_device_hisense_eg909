@@ -69,13 +69,6 @@ PRODUCT_PACKAGES += \
     init.rc \
     init.AD683G.rc
 
-# additional packages
-PRODUCT_PACKAGES += \
-    Superuser \
-    Apollo \
-    Term \
-    libjackpal-androidterm4
-
 # permissions
 PRODUCT_COPY_FILES := \
     frameworks/base/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
