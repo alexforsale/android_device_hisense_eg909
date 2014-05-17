@@ -19,7 +19,7 @@ USE_CAMERA_STUB := true
 
 TARGET_NO_BOOTLOADER := true
 
-TARGET_BOOTLOADER_BOARD_NAME := AD683G
+TARGET_BOOTLOADER_BOARD_NAME := eg909
 
 BOARD_HAS_ATH_WLAN := true
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -48,10 +48,10 @@ PROTEUS_DEVICE_API := true
 
 BOARD_KERNEL_BASE    := 0x00e3b004
 
-TARGET_PREBUILT_KERNEL := device/hisense/AD683G/kernel
+TARGET_PREBUILT_KERNEL := device/hisense/eg909/kernel
 # modify Android.mk in system/core/charger and system/core/init to use these
-TARGET_PREBUILT_INIT := vendor/hisense/AD683G/proprietary/init
-TARGET_PREBUILT_CHARGER := vendor/hisense/AD683G/proprietary/charger
+TARGET_PREBUILT_INIT := vendor/hisense/eg909/proprietary/init
+TARGET_PREBUILT_CHARGER := vendor/hisense/eg909/proprietary/charger
 
 TARGET_PROVIDES_INIT_RC := true
 
@@ -71,6 +71,6 @@ ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_NEON := true
 ENABLE_SVG := true
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/hisense/AD683G
+TARGET_RELEASETOOLS_EXTENSIONS := device/hisense/eg909
 
--include vendor/hisense/AD683G/BoardConfigVendor.mk
+-include vendor/hisense/eg909/BoardConfigVendor.mk

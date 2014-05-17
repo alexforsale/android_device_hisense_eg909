@@ -15,12 +15,12 @@
 #
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/hisense/AD683G/kernel
+LOCAL_KERNEL := device/hisense/eg909/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-DEVICE_PACKAGE_OVERLAYS := device/hisense/AD683G/overlay
+DEVICE_PACKAGE_OVERLAYS := device/hisense/eg909/overlay
 
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
@@ -67,7 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
-    init.AD683G.rc
+    init.eg909.rc
 
 # permissions
 PRODUCT_COPY_FILES := \
@@ -77,7 +77,7 @@ PRODUCT_COPY_FILES := \
 $(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
 
 # proprietary stuffs
-$(call inherit-product-if-exists, vendor/hisense/AD683G/AD683G-vendor-blobs.mk)
+$(call inherit-product-if-exists, vendor/hisense/eg909/eg909-vendor-blobs.mk)
 
 # gps.conf
 $(call inherit-product, device/common/gps/gps_as_supl.mk)
@@ -85,8 +85,8 @@ $(call inherit-product, device/common/gps/gps_as_supl.mk)
 # gapps
 $(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
 
-PRODUCT_NAME := AD683G
-PRODUCT_DEVICE := AD683G
+PRODUCT_NAME := eg909
+PRODUCT_DEVICE := eg909
 PRODUCT_BRAND := hisense
-PRODUCT_MODEL := Codeaurora AOSP Hisense AD683G
+PRODUCT_MODEL := Hisense AD683G
 PRODUCT_MANUFACTURER := Hisense

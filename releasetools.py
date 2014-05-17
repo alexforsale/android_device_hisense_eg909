@@ -36,7 +36,7 @@ def SigBanner(self):
     self.script.AppendExtra('ui_print("            this is an AOSP build                     ");')
     self.script.AppendExtra('ui_print("                 based on                           ");')
     self.script.AppendExtra('ui_print("          alexforsale device tree                   ");')
-    self.script.AppendExtra('ui_print("        at github.com/alexforsale/                  ");')
+    self.script.AppendExtra('ui_print("        at github.com/my4ndr0id                  ");')
 
 def FullOTA_Assertions(self):
    RunEFSBackup(self)

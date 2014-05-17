@@ -1,5 +1,5 @@
 #
-# system.prop for AD683G
+# system.prop for eg909
 #
 
 rild.libpath=/system/lib/libril-qc-1.so

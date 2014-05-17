@@ -4,7 +4,7 @@
 # This is a common source of Android security bugs.
 #
 
-import /init.AD683G.rc
+import /init.eg909.rc
 
 on early-init
     # Set init and its forked children's oom_adj.

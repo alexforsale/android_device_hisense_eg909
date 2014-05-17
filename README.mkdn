@@ -1,6 +1,3 @@
-android_device_hisense_AD683G
+android_device_hisense_eg909
 ======================================
 
-Codeaurora's AOSP device tree for AD683G using M8625SSNSKMLYA1050 manifest, wiki at [caf-ics wiki] [caf-ics wiki]
-
-[caf-ics wiki]:https://github.com/alexforsale/android_device_hisense_AD683G/tree/caf/ics_strawberry_rb5.3
