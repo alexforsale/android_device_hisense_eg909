@@ -88,5 +88,5 @@ $(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
 PRODUCT_NAME := eg909
 PRODUCT_DEVICE := eg909
 PRODUCT_BRAND := hisense
-PRODUCT_MODEL := Hisense AD683G
+PRODUCT_MODEL := Hisense eg909
 PRODUCT_MANUFACTURER := Hisense
