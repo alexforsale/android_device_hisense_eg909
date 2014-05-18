@@ -64,6 +64,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=false
 
+# setupwizard
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.setupwizard.mode=OPTIONAL
+
 # init files
 PRODUCT_PACKAGES += \
     init.rc \
