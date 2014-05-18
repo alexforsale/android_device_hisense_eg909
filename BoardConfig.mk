@@ -72,5 +72,6 @@ ARCH_ARM_HAVE_NEON := true
 ENABLE_SVG := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/hisense/eg909
+TARGET_OTA_ASSERT_DEVICE := AD683G,eg909
 
 -include vendor/hisense/eg909/BoardConfigVendor.mk
