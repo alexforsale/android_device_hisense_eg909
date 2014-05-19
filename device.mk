@@ -77,9 +77,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES := \
     frameworks/base/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
 
-# msm7627a
-$(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
-
 # proprietary stuffs
 $(call inherit-product-if-exists, vendor/hisense/eg909/eg909-vendor-blobs.mk)
 
@@ -89,11 +86,8 @@ $(call inherit-product, device/common/gps/gps_as_supl.mk)
 # gapps
 $(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
 
-# my4ndr0id modification
-$(call inherit-product-if-exists, vendor/my4ndr0id/config/common.mk)
-
-PRODUCT_NAME := eg909
 PRODUCT_DEVICE := eg909
+PRODUCT_NAME := eg909
 PRODUCT_BRAND := hisense
 PRODUCT_MODEL := Hisense eg909
 PRODUCT_MANUFACTURER := Hisense
