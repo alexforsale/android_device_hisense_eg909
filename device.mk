@@ -84,7 +84,7 @@ $(call inherit-product-if-exists, vendor/hisense/eg909/eg909-vendor-blobs.mk)
 $(call inherit-product, device/common/gps/gps_as_supl.mk)
 
 # gapps
-$(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
+#$(call inherit-product-if-exists, vendor/gapps/gapps-vendor-blobs.mk)
 
 PRODUCT_DEVICE := eg909
 PRODUCT_NAME := my4ndr0id_eg909
