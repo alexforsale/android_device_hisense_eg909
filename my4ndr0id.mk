@@ -28,5 +28,5 @@ $(call inherit-product, device/hisense/eg909/device.mk)
 PRODUCT_DEVICE := eg909
 PRODUCT_NAME := my4ndr0id_eg909
 PRODUCT_BRAND := hisense
-PRODUCT_MODEL := Hisense eg909
+PRODUCT_MODEL := Hacksense eg909
 PRODUCT_MANUFACTURER := Hisense
