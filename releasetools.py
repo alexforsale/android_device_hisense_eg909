@@ -16,6 +16,16 @@
 
 import common
 
+def Backuptool(self):
+    self.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/system");')
+    self.script.AppendExtra('package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");')
+    self.script.AppendExtra('package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");')
+    self.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/backuptool.sh");')
+    self.script.AppendExtra('set_perm(0, 0, 0644, "/tmp/backuptool.functions");')
+    self.script.AppendExtra('run_program("/tmp/backuptool.sh", "backup");')
+    self.script.AppendExtra('unmount("/system");')
+
+
 def RunEFSBackup(self):
     self.script.AppendExtra('ui_print("Backing Up EFS Partitions to /sdcard/EFS_BACKUPS/");')
     self.script.AppendExtra('package_extract_file("system/bin/efsbackup.sh", "/tmp/efsbackup.sh");')
@@ -35,18 +45,21 @@ def FixInitd(self):
 def SigBanner(self):
     self.script.AppendExtra('ui_print("            this is an AOSP build                     ");')
     self.script.AppendExtra('ui_print("                 based on                           ");')
-    self.script.AppendExtra('ui_print("          alexforsale device tree                   ");')
+    self.script.AppendExtra('ui_print("          my4ndr0id device tree                   ");')
     self.script.AppendExtra('ui_print("        at github.com/my4ndr0id                  ");')
 
 def FullOTA_Assertions(self):
    RunEFSBackup(self)
+   Backuptool(self)
 
 def IncrementalOTA_Assertions(self):
    RunEFSBackup(self)
+   Backuptool(self)
 
 def FullOTA_InstallEnd(self):
    FixInitd(self)
    SigBanner(self)
+
 def IncrementalOTA_InstallEnd(self):
    FixInitd(self)
    SigBanner(self)
