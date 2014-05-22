@@ -23,7 +23,7 @@ endif
 DEVICE_PACKAGE_OVERLAYS := device/hisense/eg909/overlay
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # dsds enable
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -74,7 +74,7 @@ PRODUCT_PACKAGES += \
     init.eg909.rc
 
 # permissions
-PRODUCT_COPY_FILES := \
+PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
 
 # proprietary stuffs
