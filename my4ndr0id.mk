@@ -24,6 +24,9 @@ $(call inherit-product, vendor/my4ndr0id/config/common.mk)
 # Inherit device configuration
 $(call inherit-product, device/hisense/eg909/device.mk)
 
+# Get the long list of APNs
+PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := eg909
 PRODUCT_NAME := my4ndr0id_eg909
