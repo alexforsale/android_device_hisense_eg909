@@ -16,7 +16,7 @@
 
 import common
 
-def Backuptool(self):
+def BackuptoolStart(self):
     self.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/system");')
     self.script.AppendExtra('package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");')
     self.script.AppendExtra('package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");')
@@ -24,6 +24,15 @@ def Backuptool(self):
     self.script.AppendExtra('set_perm(0, 0, 0644, "/tmp/backuptool.functions");')
     self.script.AppendExtra('run_program("/tmp/backuptool.sh", "backup");')
     self.script.AppendExtra('unmount("/system");')
+
+def BackuptoolEnd(self):
+    self.script.AppendExtra('package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");')
+    self.script.AppendExtra('package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");')
+    self.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/backuptool.sh");')
+    self.script.AppendExtra('set_perm(0, 0, 0644, "/tmp/backuptool.functions");')
+    self.script.AppendExtra('run_program("/tmp/backuptool.sh", "restore");')
+    self.script.AppendExtra('delete("/system/bin/backuptool.sh");')
+    self.script.AppendExtra('delete("/system/bin/backuptool.functions");')
 
 
 def RunEFSBackup(self):
@@ -37,10 +46,8 @@ def RunEFSBackup(self):
 
 def FixInitd(self):
     self.script.AppendExtra('ui_print("set permission for init.d");')
-    self.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/system");')
     self.script.AppendExtra('set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");')
     self.script.AppendExtra('ui_print("done!");')
-    self.script.AppendExtra('unmount("/system");')
 
 def SigBanner(self):
     self.script.AppendExtra('ui_print("            this is an AOSP build                     ");')
@@ -50,17 +57,18 @@ def SigBanner(self):
 
 def FullOTA_Assertions(self):
    RunEFSBackup(self)
-   Backuptool(self)
+   BackuptoolStart(self)
 
 def IncrementalOTA_Assertions(self):
    RunEFSBackup(self)
-   Backuptool(self)
+   BackuptoolStart(self)
 
 def FullOTA_InstallEnd(self):
    FixInitd(self)
    SigBanner(self)
+   BackuptoolEnd(self)
 
 def IncrementalOTA_InstallEnd(self):
    FixInitd(self)
    SigBanner(self)
-
+   BackuptoolEnd(self)
