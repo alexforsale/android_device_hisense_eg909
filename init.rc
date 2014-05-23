@@ -4,7 +4,7 @@
 # This is a common source of Android security bugs.
 #
 
-import /init.eg909.rc
+import /init.${ro.build.product}.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -57,6 +57,7 @@ loglevel 3
 
 # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
+    symlink /mnt/sdcard2 /sdcard2
 
     mkdir /system
     mkdir /data 0771 system system
