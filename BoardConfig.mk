@@ -74,9 +74,6 @@ ENABLE_SVG := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/hisense/eg909
 TARGET_OTA_ASSERT_DEVICE := AD683G,eg909
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
-TARGET_USE_CUSTOM_SECOND_LUN_NUM := 1
-BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/sdcard_lun/file"
 
 -include vendor/hisense/eg909/BoardConfigVendor.mk
