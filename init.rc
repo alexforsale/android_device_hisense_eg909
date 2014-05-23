@@ -4,7 +4,7 @@
 # This is a common source of Android security bugs.
 #
 
-import /init.${ro.build.product}.rc
+import /init.eg909.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -44,7 +44,7 @@ loglevel 3
 # create mountpoints
     mkdir /mnt 0775 root system
     mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/sdcard2 0000 system system
+    mkdir /mnt/internal_sd 0000 system system
 # create USB host bus directory here so that libusbhost
 # can start monitoring.
     mkdir /dev/bus 0755 root root
@@ -57,7 +57,7 @@ loglevel 3
 
 # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
-    symlink /mnt/sdcard2 /sdcard2
+    symlink /mnt/internal_sd /internal_sd
 
     mkdir /system
     mkdir /data 0771 system system
