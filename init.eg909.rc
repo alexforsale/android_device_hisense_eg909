@@ -1,0 +1,31 @@
+# Copyright (C) 2014 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+on boot
+
+# change proxlightsensor device permission
+    chmod 666 /dev/apds9900_dev
+# change accelerometer device permission
+    chmod 666 /dev/adxl346_dev
+# change ecompass device permission
+    chmod 666 /dev/mag_sensor_dev
+    chmod 666 /dev/ecompass_ctrl
+    chmod 777 /system/bin/memsicd
+    mkdir /data/misc/sensors 0777 system system
+
+# memsicd sensor
+service memsicd /system/bin/memsicd
+    class main
+    user memsicd
+    group memsicd
+    oneshot
+
+service utpd /system/bin/utpd
+    #socket utpd stream 600 radio system
+    user root system radio
+    group root net_admin net_raw radio
+    disabled
+    oneshot
