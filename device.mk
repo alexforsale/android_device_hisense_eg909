@@ -20,6 +20,9 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
+
 DEVICE_PACKAGE_OVERLAYS := device/hisense/eg909/overlay
 
 # dsds enable
