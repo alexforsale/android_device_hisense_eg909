@@ -19,8 +19,6 @@ PRODUCT_RELEASE_NAME := eg909
 
 # msm7627a
 $(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
-# my4ndr0id modification
-$(call inherit-product, vendor/my4ndr0id/config/common.mk)
 # Inherit device configuration
 $(call inherit-product, device/hisense/eg909/device.mk)
 
