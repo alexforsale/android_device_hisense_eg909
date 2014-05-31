@@ -29,6 +29,6 @@ PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.
 PRODUCT_DEVICE := eg909
 PRODUCT_NAME := my4ndr0id_eg909
 PRODUCT_BRAND := hisense
-PRODUCT_MODEL := Hacksense eg909
+PRODUCT_MODEL := eg909
 PRODUCT_MANUFACTURER := Hisense
 PRODUCT_LOCALES := in_ID en_US
