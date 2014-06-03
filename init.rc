@@ -39,7 +39,7 @@ loglevel 3
 # create mountpoints
     mkdir /mnt 0775 root system
     mkdir /mnt/sdcard 0000 system system
-
+    mkdir /mnt/internal_sd 0000 system system
 # create USB host bus directory here so that libusbhost
 # can start monitoring.
     mkdir /dev/bus 0755 root root
@@ -52,6 +52,7 @@ loglevel 3
 
 # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
+    symlink /mnt/internal_sd /internal_sd
 
     mkdir /system
     mkdir /data 0771 system system
@@ -307,6 +308,9 @@ on boot
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
+# Run sysinit
+    exec /system/bin/sysinit
+
     class_start core
     class_start main
 
@@ -392,6 +396,9 @@ service console /system/bin/sh
     disabled
     user shell
     group log
+
+on property:ro.debuggable=1
+    start console
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
 service adbd /sbin/adbd
