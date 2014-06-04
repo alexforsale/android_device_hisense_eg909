@@ -50,6 +50,8 @@ BOARD_KERNEL_BASE    := 0x00e3b004
 
 TARGET_PREBUILT_KERNEL := device/hisense/eg909/kernel
 
+TARGET_PROVIDES_INIT_RC := true
+
 # webkit
 ENABLE_WEBGL := true
 WEBCORE_FPS_DISPLAY := true
