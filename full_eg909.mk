@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The Android Open Source Project
+# Copyright (C) 2014 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-add_lunch_combo my4ndr0id_eg909-eng
-add_lunch_combo my4ndr0id_eg909-userdebug
-add_lunch_combo my4ndr0id_eg909-user
+
+# msm7627a
+$(call inherit-product, device/qcom/msm7627a/msm7627a.mk)
+# Inherit device configuration
+$(call inherit-product, device/hisense/eg909/device.mk)
