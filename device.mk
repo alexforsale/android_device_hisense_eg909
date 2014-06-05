@@ -29,15 +29,6 @@ DEVICE_PACKAGE_OVERLAYS := device/hisense/eg909/overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dsds.enabled=true
 
-# property override for dns
-PRODUCT_PROPERTY_OVERRIDES += \
-    dhcp.wlan0.dns1=8.8.8.8 \
-    dhcp.wlan0.dns2=8.8.4.4 \
-    net.dns1=8.8.8.8 \
-    net.dns2=8.8.4.4 \
-    net.wlan0.dns1=8.8.8.8 \
-    net.wlan0.dns2=8.8.4.4
-
 # property override for browsermanagement
 PRODUCT_PROPERTY_OVERRIDES += \
     browser.management=false
