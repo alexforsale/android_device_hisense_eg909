@@ -18,21 +18,11 @@ LOCAL_PATH := $(call my-dir)
 
 # if some modules are built directly from this directory (not subdirectories),
 # their rules should be written here.
-ifeq ($(TARGET_PROVIDES_INIT_RC),true)
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.rc
+LOCAL_MODULE       := init.my4ndr0id.rc
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := init.rc
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-endif #TARGET_PROVIDES_INIT_RC
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := init.eg909.rc
-LOCAL_MODULE_TAGS  := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := init.eg909.rc
+LOCAL_SRC_FILES    := init.my4ndr0id.rc
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 

@@ -16,6 +16,9 @@ on post-fs-data
     chown system system /cache/dalvik-cache
     chmod 0771 /cache/dalvik-cache
 
+    chown system system /data/dalvik-cache
+    chmod 0771 /data/dalvik-cache
+
 on boot
 
 # change proxlightsensor device permission
@@ -41,6 +44,40 @@ on boot
     write /sys/kernel/mm/ksm/sleep_millisecs 1500
     write /sys/kernel/mm/ksm/pages_to_scan 256
 
+## Permissions to allow system-wide tracing to the kernel trace buffer.
+
+# Allow writing to the kernel trace log.
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
+# Allow the shell group to enable (some) kernel tracing.
+    chown root shell /sys/kernel/debug/tracing/trace_clock
+    chown root shell /sys/kernel/debug/tracing/buffer_size_kb
+    chown root shell /sys/kernel/debug/tracing/options/overwrite
+    chown root shell /sys/kernel/debug/tracing/events/sched/sched_switch/enable
+    chown root shell /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable
+    chown root shell /sys/kernel/debug/tracing/events/power/cpu_frequency/enable
+    chown root shell /sys/kernel/debug/tracing/events/power/cpu_idle/enable
+    chown root shell /sys/kernel/debug/tracing/events/cpufreq_interactive/enable
+    chown root shell /sys/kernel/debug/tracing/tracing_on
+
+    chmod 0664 /sys/kernel/debug/tracing/trace_clock
+    chmod 0664 /sys/kernel/debug/tracing/buffer_size_kb
+    chmod 0664 /sys/kernel/debug/tracing/options/overwrite
+    chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_switch/enable
+    chmod 0664 /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable
+    chmod 0664 /sys/kernel/debug/tracing/events/power/cpu_frequency/enable
+    chmod 0664 /sys/kernel/debug/tracing/events/power/cpu_idle/enable
+    chmod 0664 /sys/kernel/debug/tracing/events/cpufreq_interactive/enable
+    chmod 0664 /sys/kernel/debug/tracing/tracing_on
+
+# Allow only the shell group to read and truncate the kernel trace.
+    chown root shell /sys/kernel/debug/tracing/trace
+    chmod 0660 /sys/kernel/debug/tracing/trace
+
+
+# Run sysinit
+    exec /system/bin/sysinit
+
 # adb over network
 on property:service.adb.tcp.port=5555
     stop adbd
@@ -57,11 +94,18 @@ service memsicd /system/bin/memsicd
     oneshot
 
 service utpd /system/bin/utpd
-    #socket utpd stream 600 radio system
     user root system radio
     group root net_admin net_raw radio
     disabled
     oneshot
+
+on property:ro.debuggable=1
+    start console
+
+# Used to set USB configuration at boot and to switch the configuration
+# when changing the default configuration
+on property:persist.sys.usb.config=*
+    setprop sys.usb.config ${persist.sys.usb.config}
 
 # su daemon
 service su_daemon /system/xbin/su --daemon

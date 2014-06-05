@@ -70,8 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # init files
 PRODUCT_PACKAGES += \
-    init.rc \
-    init.eg909.rc
+    init.my4ndroid.rc
 
 # packages for init.rc
 PRODUCT_PACKAGES += \
